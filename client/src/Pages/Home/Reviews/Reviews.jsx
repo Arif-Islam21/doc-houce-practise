@@ -8,7 +8,11 @@ import doctor4 from "../../../assets/doctors/doctor4.avif";
 import doctor5 from "../../../assets/doctors/doctor5.avif";
 import doctor6 from "../../../assets/doctors/doctor6.avif";
 import { useState } from "react";
-import { FaArrowAltCircleLeft, FaArrowRight } from "react-icons/fa";
+import {
+  FaArrowAltCircleLeft,
+  FaArrowAltCircleRight,
+  FaArrowRight,
+} from "react-icons/fa";
 
 const Reviews = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,7 +39,7 @@ const Reviews = () => {
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
         }
       />
-      <div className="navigation-wrapper">
+      <div className="navigation-wrapper relative">
         <div ref={sliderRef} className="keen-slider my-4 gap-3">
           <div className="keen-slider__slide max-h-[60vh] number-slide1">
             <img src={doctor1} alt="" />
@@ -59,14 +63,16 @@ const Reviews = () => {
         {loaded && instanceRef && (
           <>
             <FaArrowAltCircleLeft
-              className="bg-red-800 text-5xl"
+              className="absolute left-0 top-[50%] rounded-full hover:text-secondary duration-300 border-secondary border-2 text-5xl"
               onClick={(e) =>
                 e.stopPropagation() || instanceRef.current?.prev()
               }
             />
-            <FaArrowRight
-              className="bg-red-800 text-5xl"
-              onClick={(e) => e.stopPropagation || instanceRef.current?.next()}
+            <FaArrowAltCircleRight
+              className="absolute right-0 top-[50%] rounded-full hover:text-secondary duration-300 border-secondary border-2 text-5xl"
+              onClick={(e) =>
+                e.stopPropagation() || instanceRef.current?.next()
+              }
             />
           </>
         )}
