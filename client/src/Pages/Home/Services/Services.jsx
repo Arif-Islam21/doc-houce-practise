@@ -1,6 +1,7 @@
-import doctor1 from "../../assets/doctors/doctor6.avif";
-import doctor2 from "../../assets/doctors/doctor5.avif";
-import Button from "../../Components/Button/Button";
+import doctor1 from "../../../assets/doctors/doctor5.avif";
+import doctor2 from "../../../assets/doctors/doctor6.avif";
+
+import Button from "../../../Components/Button/Button";
 
 const Services = () => {
   return (
@@ -9,7 +10,7 @@ const Services = () => {
         <div className="md:w-1/2 w-full">
           <img
             src={doctor1}
-            className="w-full max-w-[100vw] min-h-[90vh] rounded-lg shadow-2xl"
+            className="w-full max-w-[100vw] min-h-svh rounded-lg shadow-2xl"
           />
         </div>
         <div className="w-full max-w-[100vw] lg:w-1/2">
