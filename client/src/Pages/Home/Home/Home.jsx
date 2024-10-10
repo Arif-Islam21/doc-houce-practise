@@ -4,6 +4,10 @@ const Home = () => {
   return (
     <div>
       <Hero />
+      <Hero />
+      <Hero />
+      <Hero />
+      <Hero />
     </div>
   );
 };

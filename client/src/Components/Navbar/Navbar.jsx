@@ -1,7 +1,29 @@
 import { NavLink } from "react-router-dom";
 import { FaBriefcaseMedical } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  let lastScrollTop = 0;
+
+  const handleScroll = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const navItems = ["Home", "About", "Appoinement", "Login"];
   const links = (
     <>
@@ -16,7 +38,11 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar md:px-16 bg-primary">
+    <div
+      className={`transition-transform duration-300 ${
+        isVisible ? "flex" : "hidden"
+      } navbar fixed bg-transparent border-2 border-red-600 top-0 left-0 md:px-16`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

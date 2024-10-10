@@ -3,10 +3,9 @@ import Navbar from "../Components/Navbar/Navbar";
 
 const Main = () => {
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <div className="bg-primary">
-        <Navbar />
-      </div>
+    <div className="max-w-screen-xl relative z-10 mx-auto">
+      <Navbar />
+
       <div>
         <Outlet />
       </div>
