@@ -8,7 +8,7 @@ const Main = () => {
       <div>
         <Outlet />
       </div>
-      <p className="border-2">Footer</p>
+      <p>Footer</p>
     </div>
   );
 };
