@@ -1,4 +1,5 @@
 import Button from "../../../Components/Button/Button";
+import doctor1 from "../../../assets/doctors/doctor1.avif";
 
 const Hero = () => {
   return (
@@ -6,8 +7,8 @@ const Hero = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="w-full md:w-1/2">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-            className="max-w-sm rounded-lg shadow-2xl"
+            src={doctor1}
+            className="max-w-sm border-2 h-auto rounded-lg shadow-2xl"
           />
         </div>
         <div className="w-full md:w-1/2">
@@ -17,7 +18,9 @@ const Hero = () => {
             doubt , you can come and check up from here. If it not work we
             ensure money back guarenty
           </p>
-          <Button text={"All Services"} type={"secondary"} />
+          <div className="justify-end flex pr-12">
+            <Button text={"All Services"} type={"secondary"} />
+          </div>
         </div>
       </div>
     </div>
