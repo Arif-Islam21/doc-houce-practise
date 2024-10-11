@@ -6,11 +6,11 @@ import Button from "../../../Components/Button/Button";
 const Services = () => {
   return (
     <div className="hero text-black md:px-16 py-8 min-h-[60vh]">
-      <div className="hero-content md:flex-row gap-3 flex-col lg:flex-row">
-        <div className="md:w-1/2 w-full">
+      <div className="hero-content md:flex-row gap-3 relative flex-col lg:flex-row">
+        <div className="md:w-1/2 min-h-[60vh] w-full">
           <img
             src={doctor1}
-            className="w-full max-w-[100vw] min-h-svh rounded-lg shadow-2xl"
+            className=" lg:w-1/2 max-w-[90vw] lg:-left-4 absolute top-0 bottom-0 lg:min-h-[100%] rounded-lg shadow-2xl"
           />
         </div>
         <div className="w-full max-w-[100vw] lg:w-1/2">
