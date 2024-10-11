@@ -8,11 +8,8 @@ import doctor4 from "../../../assets/doctors/doctor4.avif";
 import doctor5 from "../../../assets/doctors/doctor5.avif";
 import doctor6 from "../../../assets/doctors/doctor6.avif";
 import { useState } from "react";
-import {
-  FaArrowAltCircleLeft,
-  FaArrowAltCircleRight,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import ReviewCard from "../../../Components/ReviewCard/ReviewCard";
 
 const Reviews = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,7 +24,14 @@ const Reviews = () => {
     },
     loop: true,
     slides: {
-      perView: 2,
+      perView: 1,
+    },
+    breakpoints: {
+      "(min-width: 768px)": {
+        slides: {
+          perView: 2,
+        },
+      },
     },
   });
 
@@ -39,25 +43,49 @@ const Reviews = () => {
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
         }
       />
-      <div className="navigation-wrapper relative">
-        <div ref={sliderRef} className="keen-slider my-4 gap-3">
-          <div className="keen-slider__slide max-h-[60vh] number-slide1">
-            <img src={doctor1} alt="" />
+      <div className="navigation-wrapper relative my-8">
+        <div ref={sliderRef} className="keen-slider">
+          <div className="keen-slider__slide max-h-[45vh] number-slide1">
+            <ReviewCard
+              image={doctor1}
+              name={"Ariful Islam"}
+              text={"Web Developer"}
+            />
           </div>
-          <div className="keen-slider__slide max-h-[60vh] number-slide2">
-            <img src={doctor2} alt="" />
+          <div className="keen-slider__slide max-h-[45vh] number-slide2">
+            <ReviewCard
+              image={doctor2}
+              name={"Ariful Islam"}
+              text={"Web Developer"}
+            />
           </div>
-          <div className="keen-slider__slide max-h-[60vh] number-slide3">
-            <img src={doctor3} alt="" />
+          <div className="keen-slider__slide max-h-[45vh] number-slide3">
+            <ReviewCard
+              image={doctor3}
+              name={"Ariful Islam"}
+              text={"Web Developer"}
+            />
           </div>
-          <div className="keen-slider__slide max-h-[60vh] number-slide4">
-            <img src={doctor4} alt="" />
+          <div className="keen-slider__slide max-h-[45vh] number-slide4">
+            <ReviewCard
+              image={doctor4}
+              name={"Ariful Islam"}
+              text={"Web Developer"}
+            />
           </div>
-          <div className="keen-slider__slide max-h-[60vh] number-slide5">
-            <img src={doctor5} alt="" />
+          <div className="keen-slider__slide max-h-[45vh] number-slide5">
+            <ReviewCard
+              image={doctor5}
+              name={"Ariful Islam"}
+              text={"Web Developer"}
+            />
           </div>
-          <div className="keen-slider__slide max-h-[60vh] number-slide6">
-            <img src={doctor6} alt="" />
+          <div className="keen-slider__slide max-h-[45vh] number-slide6">
+            <ReviewCard
+              image={doctor6}
+              name={"Ariful Islam"}
+              text={"Web Developer"}
+            />
           </div>
         </div>
         {loaded && instanceRef && (
