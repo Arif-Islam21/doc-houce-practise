@@ -81,6 +81,7 @@ const DoctorProfile = () => {
               <Tab
                 style={{
                   backgroundColor: activeTab === idx ? "#F7A582" : "whitesmoke",
+                  color: activeTab === idx ? "whitesmoke" : "black",
                 }}
                 onClick={() => setActiveTab(idx)}
                 className={`w-full py-3 font-bold border-none text-center`}
