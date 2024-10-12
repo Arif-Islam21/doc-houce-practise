@@ -11,7 +11,7 @@ const DoctorProfile = () => {
       <div className="hero-content flex-col lg:flex-row">
         <img
           src={doctor1}
-          className="max-w-sm border shadow-md mr-2 rounded-lg"
+          className="max-w-sm w-full border shadow-md mr-2 rounded-lg"
         />
         <div>
           <h1 className="text-5xl font-bold">Dr. Adnan</h1>
@@ -31,7 +31,7 @@ const DoctorProfile = () => {
             <span>Nilphamari Sadar, Rangpur-</span>
             <span className="text-secondary font-bold ">Get Direction</span>
           </p>
-          <div className="flex">
+          <div className="flex flex-wrap">
             <img
               src={doctor2}
               className="size-20 rounded-md my-3 mr-3"

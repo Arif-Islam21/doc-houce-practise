@@ -3,6 +3,7 @@ import Rating from "react-rating";
 import { CiCalendar, CiDollar, CiLocationArrow1, CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import Button from "../Button/Button";
+import { NavLink } from "react-router-dom";
 
 const DoctorCard = () => {
   return (
@@ -37,9 +38,9 @@ const DoctorCard = () => {
           <CiDollar className="text-xl" />
           <span className="text-gray-500 font-semibold">515</span>
         </p>
-        <div className="card-actions justify-center">
+        <NavLink to="/DoctorProfile" className="card-actions justify-center">
           <Button text={"View Profile"} type={"primary"} />
-        </div>
+        </NavLink>
       </div>
     </div>
   );
