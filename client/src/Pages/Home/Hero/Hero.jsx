@@ -5,7 +5,7 @@ import doctor3 from "../../../assets/doctors/doctor3.avif";
 
 const Hero = () => {
   return (
-    <div className="hero md:px-16 py-16 bg-primary min-h-[85vh]">
+    <div className="hero md:px-16 py-16 bg-primary text-white min-h-[85vh]">
       <div className="hero-content flex-col-reverse lg:flex-row-reverse">
         <div className="w-full pt-10 lg:pt-0  md:w-1/2">
           <div className="relative h-[70vh]">

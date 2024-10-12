@@ -1,6 +1,14 @@
+import { useState } from "react";
 import { CiLocationArrow1, CiPhone } from "react-icons/ci";
+import DatePicker from "react-datepicker";
+import TimePicker from "react-time-picker";
+import "react-time-picker/dist/TimePicker.css";
+import "react-clock/dist/Clock.css";
 
 const Contact = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  const [value, onChange] = useState(`10:00`);
+
   return (
     <div className="hero bg-primary my-6 rounded-md min-h-[70vh]">
       <div className="hero-content w-full md:px-16 flex-col lg:flex-row">
@@ -20,34 +28,41 @@ const Contact = () => {
             <span>Nilphamari Sadar, Bangladesh</span>
           </p>
         </div>
-        <div className="card bg-base-100 w-full md:w-2/3 shrink-0 shadow-2xl">
+        <div className="card bg-primary w-full md:w-2/3 shrink-0">
           <form className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
+            <div className="form-control grid grid-cols-1 gap-4 md:grid-cols-2 ">
+              <input
+                type="text"
+                placeholder="Name"
+                className="input bg-[#133D39] text-[#FFFFFF] font-bold input-bordered"
+                required
+              />
               <input
                 type="email"
-                placeholder="email"
-                className="input input-bordered"
+                placeholder="Email"
+                className="input bg-[#133D39] text-[#FFFFFF] font-bold input-bordered"
                 required
               />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
               <input
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
+                type="tel"
+                placeholder="Mobile Number"
+                className="input bg-[#133D39] text-[#FFFFFF] font-bold input-bordered"
                 required
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
+              <input
+                type="text"
+                placeholder="Doctor Name"
+                className="input bg-[#133D39] text-[#FFFFFF] font-bold input-bordered"
+                required
+              />
+              <DatePicker
+                selected={startDate}
+                dateFormat="yyyy/MM/dd"
+                onChange={(date) => setStartDate(date)}
+                className="input bg-[#133D39] text-white font-bold input-bordered w-full"
+                withPortal
+              />
+              <TimePicker onChange={onChange} value={value} />
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
