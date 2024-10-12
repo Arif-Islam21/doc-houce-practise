@@ -41,7 +41,7 @@ const Navbar = () => {
     <div
       className={`transition-transform duration-300 ${
         isVisible ? "flex" : "hidden"
-      } navbar fixed shadow-xl bg-primary/50 top-0 left-0 md:px-16`}
+      } navbar fixed shadow-xl bg-primary/50 z-50 top-0 left-0 md:px-16`}
     >
       <div className="navbar-start">
         <div className="dropdown">

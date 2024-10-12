@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 
 const DoctorCard = () => {
   return (
-    <div className="card bg-base-100 border border-gray-400 rounded-md w-96 shadow-xl">
+    <div className="card bg-base-100 border border-gray-400 rounded-md shadow-xl">
       <figure className="p-4">
         <img src={doctor1} className=" rounded-md" alt="Shoes" />
       </figure>
