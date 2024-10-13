@@ -7,6 +7,7 @@ import SignIn from "../Pages/SignIn/SignIn";
 import ErrorPage from "../Components/404 Page/ErrorPage";
 import Appointment from "../Pages/Appoinement/Appointment";
 import Dashboard from "../Layouts/Dashboard";
+import MyAppoinemensts from "../Pages/DashBoard/UserDashboard/MyAppoinement/MyAppoinemensts";
 
 const router = createBrowserRouter([
   {
@@ -37,8 +38,14 @@ const router = createBrowserRouter([
     element: <SignIn />,
   },
   {
-    path: "/dashboard",
+    path: "DashBoard",
     element: <Dashboard />,
+    children: [
+      {
+        path: "Appoinemnts",
+        element: <MyAppoinemensts />,
+      },
+    ],
   },
 ]);
 

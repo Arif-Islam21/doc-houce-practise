@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 
 const Main = () => {
-  const navItems = ["Home", "About", "Appoinement", "Login"];
+  const navItems = ["Home", "About", "DashBoard", "Appoinement", "Login"];
 
   return (
     <div className="max-w-screen-xl relative z-10 mx-auto">
