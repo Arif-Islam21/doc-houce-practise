@@ -27,12 +27,14 @@ const AppoineModal = ({ isOpen, handleClose: close, time }) => {
             <form onSubmit={close}>
               <input
                 type="text"
-                className="input w-full my-1 bg-gray-400 placeholder:text-white"
+                disabled={true}
+                className="input disabled:bg-gray-400 disabled:placeholder:text-white w-full  my-1"
                 placeholder="Required Date"
               />
               <input
                 type="text"
-                className="input w-full my-1 bg-gray-400 placeholder:text-white"
+                disabled={true}
+                className="input disabled:bg-gray-400 disabled:placeholder:text-white w-full my-1 "
                 placeholder={time}
               />
               <input

@@ -19,11 +19,11 @@ const SelectAppoint = () => {
       <div className="hero-overlay bg-white bg-opacity-80"></div>
       <div className="pt-12">
         <div className="flex flex-col md:flex-row gap-12">
-          <div className="w-full flex justify-end items-start md:w-1/2">
+          <div className="w-full flex justify-center lg:justify-end items-start md:w-1/2">
             <DatePicker
               selected={startDate}
+              closeOnScroll
               onChange={(date) => setStartDate(date)}
-              open
               className="input bg-gray-300 shadow-lg"
             />
           </div>
