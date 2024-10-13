@@ -33,7 +33,11 @@ const AvailableCard = () => {
           />
         </div>
       </div>
-      <AppoineModal handleClose={handleClose} isOpen={isOpen} />
+      <AppoineModal
+        time="8:00AM - 9:00PM"
+        handleClose={handleClose}
+        isOpen={isOpen}
+      />
     </div>
   );
 };
