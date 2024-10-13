@@ -10,7 +10,7 @@ const AboutMe = () => {
           magnam, saepe eum molestias?
         </p>
       </div>
-      <div className="flex gap-2 my-4">
+      <div className="flex flex-col md:flex-row gap-2 my-4">
         <div className=" w-full lg:w-1/2">
           <div>
             <h2 className="text-3xl font-bold">Education</h2>

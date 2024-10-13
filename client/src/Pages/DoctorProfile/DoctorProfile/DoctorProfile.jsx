@@ -72,7 +72,7 @@ const DoctorProfile = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white px-4 rounded-xl py-8">
+      <div className="bg-white lg:px-4 rounded-xl py-8">
         <Tabs
           selectedIndex={activeTab}
           onSelect={(index) => setActiveTab(index)}
@@ -96,12 +96,15 @@ const DoctorProfile = () => {
             <AboutMe />
           </TabPanel>
           <TabPanel>
+            {/* //TODO: ADD A MAP HERE TO SHOW DOCTOR LOCATION */}
             <h2>Any content 2</h2>
           </TabPanel>
           <TabPanel>
+            {/* //TODO: ADD REVIEWS HERE AS A CARD */}
             <h2>Any content 1</h2>
           </TabPanel>
           <TabPanel>
+            {/* //TODO: ADD BUSINESS HOURS HERE SHOWING ACTIVE TIMES */}
             <h2>Any content 2</h2>
           </TabPanel>
         </Tabs>
