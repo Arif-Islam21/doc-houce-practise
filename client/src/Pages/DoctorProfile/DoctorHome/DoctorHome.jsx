@@ -1,5 +1,5 @@
 import DoctorProfile from "../DoctorProfile/DoctorProfile";
-import DoctorHero from "../Hero/DoctorHero";
+import DoctorHero from "../../../Components/Hero/DoctorHero";
 
 const DoctorHome = () => {
   return (

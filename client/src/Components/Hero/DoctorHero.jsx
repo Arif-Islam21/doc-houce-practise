@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import image from ".././../../assets/background/bg.avif";
+import image from "../../assets/background/bg.avif";
 
 const DoctorHero = () => {
   const location = useLocation();
