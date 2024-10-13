@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { FaBriefcaseMedical } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ navItems = [] }) => {
   const [isVisible, setIsVisible] = useState(true);
   let lastScrollTop = 0;
 
@@ -23,13 +23,13 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  // const navItems = ["Home", "About", "Appoinement", "Login"];
 
-  const navItems = ["Home", "About", "Appoinement", "Login"];
   const links = (
     <>
       {navItems.map((item, idx) => (
         <li key={idx} className="">
-          <NavLink to={item} className={``}>
+          <NavLink to={item === "Home" ? "/" : item} className={``}>
             {item}
           </NavLink>
         </li>
