@@ -1,7 +1,10 @@
+import { useState } from "react";
 import image from "../../../assets/dental/image2.jfif";
 import Button from "../../../Components/Button/Button";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 
 const AvailableCard = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="card bg-base-100 shadow-2xl">
       <figure>

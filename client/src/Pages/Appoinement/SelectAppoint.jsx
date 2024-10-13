@@ -17,8 +17,7 @@ const SelectAppoint = () => {
       className="min-h-[80vh]  hero"
     >
       <div className="hero-overlay bg-white bg-opacity-80"></div>
-
-      <div className="pt-12 ">
+      <div className="pt-12">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="w-full flex justify-end items-start md:w-1/2">
             <DatePicker
@@ -34,7 +33,7 @@ const SelectAppoint = () => {
         </div>
         <div className="mt-8 text-center">
           <h5 className="text-secondary font-bold">
-            Available sit On {startDate.toDateString()}
+            Available sit On {startDate && startDate.toDateString()}
           </h5>
           <h2 className="text-4xl font-bold">Please Select a service</h2>
         </div>

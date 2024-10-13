@@ -3,7 +3,7 @@ import { FaBriefcaseMedical } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   let lastScrollTop = 0;
 
   const handleScroll = () => {
