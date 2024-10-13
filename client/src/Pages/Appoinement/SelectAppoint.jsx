@@ -2,6 +2,7 @@ import { useState } from "react";
 import background from "../../assets/background/appoinementBG.avif";
 import image from "../../assets/background/doctorBG.avif";
 import DatePicker from "react-datepicker";
+import AvailableCategory from "./AvailableCategory";
 
 const SelectAppoint = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -37,6 +38,7 @@ const SelectAppoint = () => {
           </h5>
           <h2 className="text-4xl font-bold">Please Select a service</h2>
         </div>
+        <AvailableCategory />
       </div>
     </div>
   );
