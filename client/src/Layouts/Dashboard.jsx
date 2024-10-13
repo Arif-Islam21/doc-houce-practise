@@ -2,7 +2,9 @@ import { NavLink, Outlet } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import { useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { MdHistory, MdOutlineReviews } from "react-icons/md";
 import { FaUserDoctor } from "react-icons/fa6";
+import { FaHome } from "react-icons/fa";
 
 const Dashboard = () => {
   const [isOpen, setIsopen] = useState(true);
@@ -17,11 +19,21 @@ const Dashboard = () => {
           } mt-16 flex relative duration-700 flex-col gap-y-3 pl-8 pt-8 min-h-screen bg-white shadow-xl`}
         >
           <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
-            <FaUserDoctor /> My Appoinement
+            <FaUserDoctor className="text-xl text-primary" />{" "}
+            {isOpen && <span>My Appoinement</span>}
           </NavLink>
-          <NavLink to="Appoinemnts">My Reviews</NavLink>
-          <NavLink to="Appoinemnts">My History</NavLink>
-          <NavLink to="/">Home</NavLink>
+          <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
+            <MdOutlineReviews className="text-xl text-primary" />{" "}
+            {isOpen && <span>My Reviews</span>}
+          </NavLink>
+          <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
+            <MdHistory className="text-xl text-primary" />{" "}
+            {isOpen && <span>My History</span>}
+          </NavLink>
+          <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
+            <FaHome className="text-xl text-primary" />{" "}
+            {isOpen && <span>Home</span>}
+          </NavLink>
           <button
             onClick={() => setIsopen(!isOpen)}
             className="absolute top-3 right-0 duration-700 translate-x-1/2"
