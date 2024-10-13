@@ -13,14 +13,20 @@ const Signup = () => {
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
-      signUp(values.email, values.password)
-        .then((res) => {
-          console.log(res);
-        })
-        .carch((err) => {
-          console.log(err);
-        });
+    onSubmit: async (values) => {
+      // signUp(values.email, values.password)
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .carch((err) => {
+      //     console.log(err);
+      //   });
+      try {
+        const res = await signUp(values.email, values.password);
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
