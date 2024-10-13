@@ -7,6 +7,7 @@ import Button from "../../../Components/Button/Button";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useState } from "react";
+import AboutMe from "./AboutMe";
 
 const DoctorProfile = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -71,7 +72,7 @@ const DoctorProfile = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="bg-white px-4 rounded-xl py-8">
         <Tabs
           selectedIndex={activeTab}
           onSelect={(index) => setActiveTab(index)}
@@ -92,7 +93,7 @@ const DoctorProfile = () => {
             ))}
           </TabList>
           <TabPanel>
-            <h2>Any content 1</h2>
+            <AboutMe />
           </TabPanel>
           <TabPanel>
             <h2>Any content 2</h2>
