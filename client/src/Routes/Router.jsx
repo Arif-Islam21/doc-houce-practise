@@ -5,6 +5,7 @@ import DoctorHome from "../Pages/DoctorProfile/DoctorHome/DoctorHome";
 import Signup from "../Pages/SignUp/Signup";
 import SignIn from "../Pages/SignIn/SignIn";
 import ErrorPage from "../Components/404 Page/ErrorPage";
+import Appointment from "../Pages/Appoinement/Appointment";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/DoctorProfile",
         element: <DoctorHome />,
+      },
+      {
+        path: "/appointment",
+        element: <Appointment />,
       },
     ],
   },

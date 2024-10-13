@@ -4,7 +4,7 @@ import DoctorHero from "../../../Components/Hero/DoctorHero";
 const DoctorHome = () => {
   return (
     <div className="bg-base-200 min-h-screen border">
-      <DoctorHero />
+      <DoctorHero title="Doctor Profile" />
       <DoctorProfile />
     </div>
   );
