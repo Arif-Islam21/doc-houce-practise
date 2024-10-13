@@ -20,19 +20,35 @@ const Dashboard = () => {
         >
           <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
             <FaUserDoctor className="text-xl text-primary" />{" "}
-            {isOpen && <span>My Appoinement</span>}
+            {isOpen && (
+              <span className="delay-500 duration-300 transition-all ease-in">
+                My Appoinement
+              </span>
+            )}
           </NavLink>
           <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
             <MdOutlineReviews className="text-xl text-primary" />{" "}
-            {isOpen && <span>My Reviews</span>}
+            {isOpen && (
+              <span className="delay-500 duration-300 transition-all ease-in">
+                My Reviews
+              </span>
+            )}
           </NavLink>
           <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
             <MdHistory className="text-xl text-primary" />{" "}
-            {isOpen && <span>My History</span>}
+            {isOpen && (
+              <span className="delay-500 duration-300 transition-all ease-in">
+                My History
+              </span>
+            )}
           </NavLink>
-          <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
+          <NavLink className={`flex gap-3 items-center`} to="/">
             <FaHome className="text-xl text-primary" />{" "}
-            {isOpen && <span>Home</span>}
+            {isOpen && (
+              <span className="delay-500 duration-300 transition-all ease-in">
+                Home
+              </span>
+            )}
           </NavLink>
           <button
             onClick={() => setIsopen(!isOpen)}
