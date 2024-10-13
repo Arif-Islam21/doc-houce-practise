@@ -1,6 +1,10 @@
-import background from "../../assets/background/doctorBG.avif";
+import { useState } from "react";
+import background from "../../assets/background/appoinementBG.avif";
+import image from "../../assets/background/doctorBG.avif";
+import DatePicker from "react-datepicker";
 
 const SelectAppoint = () => {
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div
       style={{
@@ -8,8 +12,23 @@ const SelectAppoint = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="min-h-[80vh] hero-overlay"
-    ></div>
+      className="min-h-[80vh] hero"
+    >
+      <div className="hero-overlay bg-white bg-opacity-80"></div>
+      <div className="flex flex-col md:flex-row gap-12">
+        <div className="w-full flex justify-end items-start md:w-1/2">
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            open
+            className="input bg-gray-300 shadow-lg"
+          />
+        </div>
+        <div className="w-full md:w-1/2">
+          <img src={image} className="rounded-md" alt="" />
+        </div>
+      </div>
+    </div>
   );
 };
 
