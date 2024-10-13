@@ -14,11 +14,11 @@ const SelectAppoint = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="min-h-[80vh] hero"
+      className="min-h-[80vh]  hero"
     >
       <div className="hero-overlay bg-white bg-opacity-80"></div>
 
-      <div className="">
+      <div className="pt-12 ">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="w-full flex justify-end items-start md:w-1/2">
             <DatePicker
