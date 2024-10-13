@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import bg from "../../assets/background/bg.avif";
 import Button from "../../Components/Button/Button";
+import useAuth from "../../Hooks/useAuth";
 
 const Signup = () => {
+  const authInfo = useAuth();
+  console.log(authInfo);
+
   return (
     <div className="flex px-[10%] py-[6%] min-h-screen  flex-col md:flex-row">
       <div className="w-full md:w-1/2 relative min-h-[70vh] ">
