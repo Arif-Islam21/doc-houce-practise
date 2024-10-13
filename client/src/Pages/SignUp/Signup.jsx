@@ -57,7 +57,7 @@ const Signup = () => {
               className="input w-full placeholder:text-white placeholder:font-bold bg-gray-300 max-w-xs"
             />
           </label>
-          <div className="w-full mt-3 flex justify-center">
+          <div className="w-full lg:w-3/4 mx-auto mt-4 flex justify-center">
             <Button text="Create Account" width="width" type="secondary" />
           </div>
           <p className="text-center my-4">
