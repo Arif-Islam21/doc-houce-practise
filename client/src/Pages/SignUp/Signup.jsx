@@ -14,13 +14,6 @@ const Signup = () => {
       password: "",
     },
     onSubmit: async (values) => {
-      // signUp(values.email, values.password)
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .carch((err) => {
-      //     console.log(err);
-      //   });
       try {
         const res = await signUp(values.email, values.password);
         console.log(res);
@@ -105,7 +98,7 @@ const Signup = () => {
           </div>
           <p className="text-center my-4">
             Already Registered? Go to{" "}
-            <Link to="/signin" className="text-secondary font-bold">
+            <Link to="/Login" className="text-secondary font-bold">
               Sign In
             </Link>
           </p>
