@@ -22,24 +22,30 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
-  const updateUser = ({ name, photo }) => {
-    setLoading(true);
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
+  const updateUser = async ({ name, photo }) => {
+    try {
+      return await updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo,
+      });
+    } catch (error) {
+      console.error("error in the authprovider file", error);
+    }
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // if (currentUser) {
-      //   setUser(currentUser);
-      //   console.log(user);
-      // } else {
-      //   setUser(null);
-      // }
-      setUser(currentUser);
-      console.log(user);
+      if (currentUser) {
+        setUser(currentUser);
+        setLoading(false);
+        console.log(currentUser);
+      } else {
+        setUser(null);
+        setLoading(false);
+      }
+      // setUser(currentUser);
+      // setLoading(false);
+      // console.log(user);
     });
 
     return () => unSubscribe();

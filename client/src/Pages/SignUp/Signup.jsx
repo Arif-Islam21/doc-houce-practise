@@ -37,10 +37,9 @@ const Signup = () => {
       try {
         const { name, email } = values;
         const res = await signUp(values.email, values.password);
-        if (res.uid) {
-          const updatedRes = await updateUser(name, uploadedUrl);
-          console.log(updatedRes);
-        }
+        console.log(res.user);
+
+        await updateUser(name, uploadedUrl);
 
         const userData = {
           name,
