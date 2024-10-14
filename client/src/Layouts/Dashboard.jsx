@@ -16,7 +16,7 @@ const Dashboard = () => {
         <div
           className={`${
             isOpen ? "w-56" : "w-20"
-          } mt-16 flex relative duration-700 flex-col gap-y-3 pl-8 pt-8 min-h-screen bg-white shadow-xl`}
+          } mt-16 hidden md:flex relative duration-700 flex-col gap-y-3 pl-8 pt-8 min-h-screen bg-white shadow-xl`}
         >
           <NavLink className={`flex gap-3 items-center`} to="Appoinemnts">
             <FaUserDoctor className="text-xl text-primary" />{" "}
@@ -61,9 +61,8 @@ const Dashboard = () => {
             )}
           </button>
         </div>
-        <div className="flex-grow mt-16 pl-8">
+        <div className="flex-grow mt-20 bg-base-200 md:pl-8">
           <Outlet />
-          <p>there will be main content</p>
         </div>
       </div>
     </div>
