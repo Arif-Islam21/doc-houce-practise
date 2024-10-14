@@ -3,13 +3,25 @@ import bg from "../../assets/background/bg.avif";
 import Button from "../../Components/Button/Button";
 import useAuth from "../../Hooks/useAuth";
 import { useFormik } from "formik";
+import useUploadImage from "../../Hooks/useUploadImage";
+import { useState } from "react";
 
 const Signup = () => {
   const { signUp } = useAuth();
+  const { uploadImage, imageUrl, error, loading } = useUploadImage();
+  const [uploadedUrl, setUploadedUrl] = useState(null);
 
-  const handleFileUpload = (event) => {
+  const handleFileUpload = async (event) => {
     const file = event.target.files[0];
+    if (file) {
+      const url = await uploadImage(file);
+      console.log(imageUrl);
+      if (url) {
+        setUploadedUrl(url);
+      }
+    }
   };
+  console.log(uploadedUrl);
 
   const formik = useFormik({
     initialValues: {
@@ -31,6 +43,7 @@ const Signup = () => {
 
   return (
     <div className="flex px-[10%] py-[6%] min-h-screen  flex-col md:flex-row">
+      {error && <p>{error}</p>}
       <div className="w-full md:w-1/2 relative min-h-[70vh] ">
         <img
           src={bg}
