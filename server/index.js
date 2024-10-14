@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser");
 const app = express();
 require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require("mongodb");
@@ -15,6 +16,7 @@ const corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(cookieParser());
 
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.knlt5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -50,7 +52,22 @@ async function run() {
         .send({ message: "cookies send succesfully" });
     });
 
-    app.get("/users", async (req, res) => {
+    const verifyToken = (req, res, next) => {
+      const token = req.cookies.token;
+      if (!token) {
+        return res.status(401).send({ message: "unauthorized access" });
+      }
+      jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+          return res.status(401).send({ message: "unauthorized access" });
+        }
+        req.decoded = decoded;
+        next();
+      });
+    };
+
+    app.get("/users", verifyToken, async (req, res) => {
+      console.log(req.cookies.token);
       const result = await usersCollection.find().toArray();
       res.send(result);
     });
