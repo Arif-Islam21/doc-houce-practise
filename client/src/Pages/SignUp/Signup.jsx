@@ -7,7 +7,7 @@ import useUploadImage from "../../Hooks/useUploadImage";
 import { useState } from "react";
 import { TbPhotoSquareRounded } from "react-icons/tb";
 import useAxiosCommon from "../../Hooks/useAxiosCommon";
-import Toast from "react-hot-toast";
+import Toast, { toast } from "react-hot-toast";
 
 const Signup = () => {
   const { signUp, updateUser } = useAuth();
@@ -34,27 +34,50 @@ const Signup = () => {
       password: "",
     },
     onSubmit: async (values) => {
-      try {
-        const { name, email } = values;
-        const res = await signUp(values.email, values.password);
-        console.log(res.user);
+      const { name, email, password } = values;
 
-        await updateUser(name, uploadedUrl);
+      signUp(email, password)
+        .then((result) => {
+          const loggeduser = result.user;
+          console.log(loggeduser);
+          // TODO: USER PHOTO URL IS NOT UPDATEING PLEASE FIX IT
+          updateUser(name, uploadedUrl).then(() => {
+            const userData = {
+              name,
+              email,
+              badge: "user",
+              image: uploadedUrl,
+            };
+            console.log(userData);
+            axiosCommon.post("/users", userData).then((res) => {
+              if (res.data.insertedId) {
+                toast.success("User created successfully");
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
-        const userData = {
-          name,
-          email,
-          badge: "user",
-          image: uploadedUrl,
-        };
-        const { data } = await axiosCommon.post("/users", userData);
-
-        if (data.insertedId) {
-          Toast.success("User Created successfully");
-        }
-      } catch (error) {
-        console.log(error);
-      }
+      // try {
+      //   const { name, email } = values;
+      //   const res = await signUp(values.email, values.password);
+      //   console.log(res.user);
+      //   await updateUser(name, uploadedUrl);
+      //   const userData = {
+      //     name,
+      //     email,
+      //     badge: "user",
+      //     image: uploadedUrl,
+      //   };
+      //   const { data } = await axiosCommon.post("/users", userData);
+      //   if (data.insertedId) {
+      //     Toast.success("User Created successfully");
+      //   }
+      // } catch (error) {
+      //   console.log(error);
+      // }
     },
   });
 

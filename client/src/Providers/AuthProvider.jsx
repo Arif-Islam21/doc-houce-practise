@@ -23,14 +23,18 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const updateUser = async ({ name, photo }) => {
-    try {
-      return await updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: photo,
-      });
-    } catch (error) {
-      console.error("error in the authprovider file", error);
-    }
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+    // try {
+    //   return await updateProfile(auth.currentUser, {
+    //     displayName: name,
+    //     photoURL: photo,
+    //   });
+    // } catch (error) {
+    //   console.error("error in the authprovider file", error);
+    // }
   };
 
   useEffect(() => {
