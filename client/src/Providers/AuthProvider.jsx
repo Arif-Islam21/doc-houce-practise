@@ -39,10 +39,15 @@ const AuthProvider = ({ children }) => {
         console.log(currentUser);
 
         // require jwt
-        const userInfo = { email: currentUser.email };
-        axiosCommon.post("/jwt", userInfo).then((res) => {
-          console.log(res.data);
-        });
+        try {
+          // !THERE IS A BUG, TOKEN SENDING WHEN REFRESHING THE PAGE
+          const userInfo = { email: currentUser.email };
+          axiosCommon.post("/jwt", userInfo).then((res) => {
+            console.log(res.data);
+          });
+        } catch (error) {
+          console.log(error);
+        }
       } else {
         setUser(null);
         setLoading(false);
@@ -50,7 +55,7 @@ const AuthProvider = ({ children }) => {
     });
 
     return () => unSubscribe();
-  }, []);
+  }, [axiosCommon]);
 
   const authInfo = {
     signUp,

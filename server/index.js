@@ -40,12 +40,11 @@ async function run() {
       const token = jwt.sign(user, process.env.JWT_SECRET, {
         expiresIn: "1h",
       });
-      console.log(token);
       res
         .cookie("token", token, {
           httpOnly: true,
           maxAge: 24 * 60 * 60 * 1000,
-          // sameSite: "strict",
+          sameSite: "strict",
           secure: false,
         })
         .send({ message: "cookies send succesfully" });
