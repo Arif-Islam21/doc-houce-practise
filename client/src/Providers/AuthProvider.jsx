@@ -7,12 +7,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/Firebase.config";
+import useAxiosCommon from "../Hooks/useAxiosCommon";
 
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const auth = getAuth(app);
+  const axiosCommon = useAxiosCommon();
 
   const signUp = (email, password) => {
     setLoading(true);
@@ -27,14 +29,6 @@ const AuthProvider = ({ children }) => {
       displayName: name,
       photoURL: photo,
     });
-    // try {
-    //   return await updateProfile(auth.currentUser, {
-    //     displayName: name,
-    //     photoURL: photo,
-    //   });
-    // } catch (error) {
-    //   console.error("error in the authprovider file", error);
-    // }
   };
 
   useEffect(() => {
@@ -43,13 +37,16 @@ const AuthProvider = ({ children }) => {
         setUser(currentUser);
         setLoading(false);
         console.log(currentUser);
+
+        // require jwt
+        const userInfo = { email: currentUser.email };
+        axiosCommon.post("/jwt", userInfo).then((res) => {
+          console.log(res.data);
+        });
       } else {
         setUser(null);
         setLoading(false);
       }
-      // setUser(currentUser);
-      // setLoading(false);
-      // console.log(user);
     });
 
     return () => unSubscribe();

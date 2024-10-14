@@ -1,12 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
+const jwt = require("jsonwebtoken");
 const app = express();
 require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
+const corsOptions = {
+  origin: ["http://localhost:5000", "http://localhost:5173"],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.knlt5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -25,6 +33,23 @@ async function run() {
     // await client.connect();
 
     const usersCollection = client.db("docHouse").collection("users");
+
+    // authorization here
+    app.post("/jwt", async (req, res) => {
+      const user = req.body;
+      const token = jwt.sign(user, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+      });
+      console.log(token);
+      res
+        .cookie("token", token, {
+          httpOnly: true,
+          maxAge: 24 * 60 * 60 * 1000,
+          // sameSite: "strict",
+          secure: false,
+        })
+        .send({ message: "cookies send succesfully" });
+    });
 
     app.get("/users", async (req, res) => {
       const result = await usersCollection.find().toArray();

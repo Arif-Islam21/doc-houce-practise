@@ -13,7 +13,7 @@ const SignIn = () => {
     },
     onSubmit: async (value) => {
       const res = await login(value.email, value.password);
-      console.log(res);
+      console.log(res.user);
     },
   });
 
