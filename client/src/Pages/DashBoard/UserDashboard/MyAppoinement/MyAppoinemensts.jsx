@@ -1,8 +1,10 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+import PaymentModal from "../../../../Components/PaymentModal/PaymentModal";
 
 const MyAppoinemensts = () => {
   const [startDate, setStartDate] = useState(new Date());
+  let [isOpen, setIsOpen] = useState(false);
   return (
     <div className="">
       <div className="flex flex-col md:flex-row items-center justify-center lg:justify-between">
@@ -39,7 +41,10 @@ const MyAppoinemensts = () => {
                 <td>6:14PM</td>
                 <td>Cavity Protection</td>
                 <td>
-                  <button className="btn px-6 font-bold bg-primary text-white hover:text-primary">
+                  <button
+                    onClick={() => setIsOpen(true)}
+                    className="btn px-6 font-bold bg-primary text-white hover:text-primary"
+                  >
                     Pay
                   </button>
                 </td>
@@ -58,6 +63,7 @@ const MyAppoinemensts = () => {
                 <td>Tax Accountant</td>
                 <td>Red</td>
               </tr> */}
+              <PaymentModal isOpen={isOpen} setIsOpen={setIsOpen} />
             </tbody>
           </table>
         </div>
