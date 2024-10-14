@@ -5,9 +5,13 @@ import useAuth from "../../Hooks/useAuth";
 import { useFormik } from "formik";
 import useUploadImage from "../../Hooks/useUploadImage";
 import { useState } from "react";
+import { TbPhotoSquareRounded } from "react-icons/tb";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
+import Toast from "react-hot-toast";
 
 const Signup = () => {
-  const { signUp } = useAuth();
+  const { signUp, updateUser } = useAuth();
+  const axiosCommon = useAxiosCommon();
   const { uploadImage, imageUrl, error, loading } = useUploadImage();
   const [uploadedUrl, setUploadedUrl] = useState(null);
 
@@ -21,7 +25,6 @@ const Signup = () => {
       }
     }
   };
-  console.log(uploadedUrl);
 
   const formik = useFormik({
     initialValues: {
@@ -32,9 +35,24 @@ const Signup = () => {
     },
     onSubmit: async (values) => {
       try {
-        // const res = await signUp(values.email, values.password);
+        const { name, email } = values;
+        const res = await signUp(values.email, values.password);
+        if (res.uid) {
+          const updatedRes = await updateUser(name, uploadedUrl);
+          console.log(updatedRes);
+        }
 
-        console.log(values);
+        const userData = {
+          name,
+          email,
+          badge: "user",
+          image: uploadedUrl,
+        };
+        const { data } = await axiosCommon.post("/users", userData);
+
+        if (data.insertedId) {
+          Toast.success("User Created successfully");
+        }
       } catch (error) {
         console.log(error);
       }
@@ -116,7 +134,16 @@ const Signup = () => {
             />
           </label>
           <div className="w-full lg:w-3/4 mx-auto mt-4 flex justify-center">
-            <Button text="Create Account" width="width" type="secondary" />
+            {loading ? (
+              <button className="btn w-full bg-primary text-white">
+                Uploading Image
+                <span className="text-xl animate-pulse">
+                  <TbPhotoSquareRounded />
+                </span>
+              </button>
+            ) : (
+              <Button text="Create Account" width="width" type="secondary" />
+            )}
           </div>
           <p className="text-center my-4">
             Already Registered? Go to{" "}
