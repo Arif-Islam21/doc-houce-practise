@@ -16,7 +16,7 @@ const MyAppoinemensts = () => {
           />
         </div>
       </div>
-      <div className="mt-8 bg-white pb-6 shadow-xl">
+      <div className="mt-8 bg-white shadow-xl">
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
@@ -24,32 +24,40 @@ const MyAppoinemensts = () => {
               <tr className="text-xl text-black bg-gray-300">
                 <th></th>
                 <th>Name</th>
-                <th>Service</th>
+                <th>Date</th>
                 <th>Time</th>
+                <th>Treatment</th>
+                <th>Payment</th>
               </tr>
             </thead>
             <tbody>
               {/* row 1 */}
               <tr>
                 <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
+                <td>Ariful Islam</td>
+                <td>20/12/2024</td>
+                <td>6:14PM</td>
+                <td>Cavity Protection</td>
+                <td>
+                  <button className="btn px-6 font-bold bg-primary text-white hover:text-primary">
+                    Pay
+                  </button>
+                </td>
               </tr>
               {/* row 2 */}
-              <tr>
+              {/* <tr>
                 <th>2</th>
                 <td>Hart Hagerty</td>
                 <td>Desktop Support Technician</td>
                 <td>Purple</td>
-              </tr>
+              </tr> */}
               {/* row 3 */}
-              <tr>
+              {/* <tr>
                 <th>3</th>
                 <td>Brice Swyre</td>
                 <td>Tax Accountant</td>
                 <td>Red</td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
