@@ -6,17 +6,23 @@ import { useFormik } from "formik";
 
 const Signup = () => {
   const { signUp } = useAuth();
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
-      username: "",
+      image: [],
       email: "",
       password: "",
     },
     onSubmit: async (values) => {
       try {
-        const res = await signUp(values.email, values.password);
-        console.log(res);
+        // const res = await signUp(values.email, values.password);
+
+        console.log(values);
       } catch (error) {
         console.log(error);
       }
@@ -53,16 +59,19 @@ const Signup = () => {
           </label>
           <label className="form-control w-full mx-auto max-w-xs">
             <div className="label">
-              <span className="label-text text-xl font-bold">Username</span>
+              <span className="label-text text-xl font-bold">
+                Pick Your Image
+              </span>
             </div>
             <input
-              type="text"
-              id="username"
-              name="username"
-              value={formik.values.username}
-              onChange={formik.handleChange}
-              placeholder="Enter your username"
-              className="input w-full placeholder:text-white placeholder:font-bold bg-gray-300 max-w-xs"
+              type="file"
+              id="image"
+              name="image"
+              value={formik.values.image}
+              onChange={(event) => {
+                handleFileUpload(event);
+              }}
+              className="file-input file-input-bordered w-full max-w-xs"
             />
           </label>
           <label className="form-control w-full mx-auto max-w-xs">
